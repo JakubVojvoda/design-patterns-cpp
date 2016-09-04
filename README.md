@@ -9,7 +9,7 @@ into creational (abstract the instantiation process), structure (how classes and
 objects are composed to form larger structures) and behavioral patterns (the 
 assignment of responsibilities between objects).  
 
-- Creational Patterns, 
+- Creational Patterns 
  - [Abstract Factory]
  - [Builder]
  - [Factory Method]
