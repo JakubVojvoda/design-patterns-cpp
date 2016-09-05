@@ -10,7 +10,7 @@ objects are composed to form larger structures) and behavioral patterns (the
 assignment of responsibilities between objects).  
 
 - Creational Patterns 
- - [Abstract Factory], todo
+ - [Abstract Factory], families of product objects
  - [Builder], todo
  - [Factory Method], todo
  - [Prototype], todo
