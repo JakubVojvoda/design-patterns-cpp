@@ -10,31 +10,31 @@ objects are composed to form larger structures) and behavioral patterns (the
 assignment of responsibilities between objects).  
 
 - Creational Patterns 
- - [Abstract Factory] (todo)
- - [Builder] (todo)
- - [Factory Method] (todo)
- - [Prototype] (todo)
- - [Singleton] (todo)
-- Structural Patterns 
- - [Adapter] (todo)
- - [Bridge]  (todo)
- - [Composite] (todo)
- - [Decorator] (todo)
- - [Façade] (todo)
- - [Flyweight] (todo)
- - [Proxy] (todo)
+ - [Abstract Factory], todo
+ - [Builder], todo
+ - [Factory Method], todo
+ - [Prototype], todo
+ - [Singleton], todo 
+- Structural Patterns
+ - [Adapter], todo
+ - [Bridge], todo 
+ - [Composite], todo
+ - [Decorator], todo
+ - [Façade], todo
+ - [Flyweight], todo
+ - [Proxy], todo
 - Behavioral Patterns
- - [Chain of Responsibility] (todo)
- - [Command] (todo)
- - [Interpreter] (todo) 
- - [Iterator] (todo)
- - [Mediator] (todo)
- - [Memento] (todo)
- - [Observer] (todo)
- - [State] (todo)
- - [Strategy] (todo)
- - [Template Method] (todo)
- - [Visitor] (todo)
+ - [Chain of Responsibility], todo
+ - [Command], todo
+ - [Interpreter], todo
+ - [Iterator], todo
+ - [Mediator], todo
+ - [Memento], todo 
+ - [Observer], todo
+ - [State], todo
+ - [Strategy], todo
+ - [Template Method], todo
+ - [Visitor], todo
 
 ### Other Languages
 In my repository you can find implementation of desgin patterns also in languages as 
