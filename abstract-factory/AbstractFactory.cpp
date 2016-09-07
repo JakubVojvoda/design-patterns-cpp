@@ -3,7 +3,7 @@
  * Author: Jakub Vojvoda [github.com/JakubVojvoda]
  * 2016
  *
- * Source code is licenced under MIT licence
+ * Source code is licensed under MIT licence
  * (for more details see LICENCE)
  * 
  */
@@ -28,14 +28,14 @@ public:
 class ConcreteProductAX : public ProductA {
 public:
   std::string getName() {
-    return "A - X";
+    return "A-X";
   }
   // ...
 };
 
 class ConcreteProductAY : public ProductA {
   std::string getName() {
-    return "A - Y";
+    return "A-Y";
   }
   // ...
 };
@@ -57,14 +57,14 @@ public:
  */
 class ConcreteProductBX : public ProductB {
   std::string getName() {
-    return "B - X";
+    return "B-X";
   }
   // ...
 };
 
 class ConcreteProductBY : public ProductB {
   std::string getName() {
-    return "B - Y";
+    return "B-Y";
   }
   // ...
 };
@@ -117,5 +117,6 @@ int main()
 
     ProductA *p2 = factoryY->createProductA();
     std::cout << "Product: " << p2->getName() << std::endl;
-
+    
+    return 0;
 }
