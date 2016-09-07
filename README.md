@@ -12,14 +12,14 @@ objects).
  - [Abstract Factory], families of product objects
  - [Builder], how a composite object gets created
  - [Factory Method], subclass of object that is instantiated
- - [Prototype], class of object that is instantiated
- - [Singleton], the sole instance of a class 
+ - [Prototype], todo
+ - [Singleton], todo 
 - Structural Patterns
  - [Adapter], todo
  - [Bridge], todo 
  - [Composite], todo
  - [Decorator], todo
- - [Façade], todo
+ - [FaÃ§ade], todo
  - [Flyweight], todo
  - [Proxy], todo
 - Behavioral Patterns
@@ -66,7 +66,7 @@ Design patterns in this repository are based on
 [Bridge]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/bridge 
 [Composite]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/composite
 [Decorator]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/decorator
-[Façade]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/facade
+[FaÃ§ade]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/facade
 [Flyweight]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/flyweight
 [Proxy]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/proxy
 [Chain of Responsibility]: https://github.com/JakubVojvoda/design-patterns-cpp/tree/master/chain-of-responsibility
