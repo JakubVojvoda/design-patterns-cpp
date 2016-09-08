@@ -12,8 +12,8 @@ objects).
  - [Abstract Factory], families of product objects
  - [Builder], how a composite object gets created
  - [Factory Method], subclass of object that is instantiated
- - [Prototype], todo
- - [Singleton], todo 
+ - [Prototype], class of object that is instantiated
+ - [Singleton], the sole instance of a class 
 - Structural Patterns
  - [Adapter], todo
  - [Bridge], todo 
