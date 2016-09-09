@@ -15,10 +15,10 @@ objects).
  - [Prototype], class of object that is instantiated
  - [Singleton], the sole instance of a class 
 - Structural Patterns
- - [Adapter], todo
- - [Bridge], todo 
- - [Composite], todo
- - [Decorator], todo
+ - [Adapter], interface to an object
+ - [Bridge], implementation of an object 
+ - [Composite], structure and composition of an object
+ - [Decorator], responsibilities of an object without subclassing
  - [Façade], todo
  - [Flyweight], todo
  - [Proxy], todo
