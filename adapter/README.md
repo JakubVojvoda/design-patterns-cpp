@@ -1,8 +1,9 @@
 ## Adapter
 
-Convert the interface of a class into another interface clients expect.
+Convert the interface of a class into another interface the clients expect.
 Adapter lets classes work together that couldn't otherwise because of
-incompatible interfaces. 
+incompatible interfaces, ie. allows to use a client with an incompatible 
+interface by an Adapter that does the conversion. 
 
 ### When to use
 
