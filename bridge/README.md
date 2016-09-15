@@ -1,7 +1,7 @@
 ## Bridge
 
-Decouple an abstraction from its implementation so that the two can
-vary independently. 
+Decouple an abstraction from its implementation so that the two can vary independently. 
+Bridge pattern has structural purpose and applies to objects, so it deals with the composition of objects. 
 
 ### When to use
 
