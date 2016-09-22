@@ -3,8 +3,8 @@
  * Author: Jakub Vojvoda [github.com/JakubVojvoda]
  * 2016
  *
- * Source code is licensed under MIT licence
- * (for more details see LICENCE)
+ * Source code is licensed under MIT License
+ * (for more details see LICENSE)
  * 
  */
 
