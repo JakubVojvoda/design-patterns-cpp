@@ -27,7 +27,7 @@ objects).
  - [Command], when and how a request is fulfilled
  - [Interpreter], grammar and interpretation of a language
  - [Iterator], how an aggregate's elements are accessed
- - [Mediator], todo
+ - [Mediator], how and which objects interact with each other
  - [Memento], todo 
  - [Observer], todo
  - [State], todo
