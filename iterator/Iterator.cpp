@@ -34,7 +34,7 @@ public:
  */
 class ConcreteAggregate : public Aggregate {
 public:
-  ConcreteAggregate(const int size) {
+  ConcreteAggregate(const unsigned int size) {
     list = new int[size]();
     count = size;
   }
