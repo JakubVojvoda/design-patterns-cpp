@@ -31,8 +31,8 @@ objects).
  - [Memento], todo 
  - [Observer], todo
  - [State], todo
- - [Strategy], todo
- - [Template Method], todo
+ - [Strategy], an algorithm
+ - [Template Method], steps of an algorithm
  - [Visitor], todo
 
 ### Other Languages
