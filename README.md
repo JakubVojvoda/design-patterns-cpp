@@ -28,7 +28,7 @@ objects).
  - [Interpreter], grammar and interpretation of a language
  - [Iterator], how an aggregate's elements are accessed
  - [Mediator], how and which objects interact with each other
- - [Memento], todo 
+ - [Memento], what private information is stored outside an object, and when 
  - [Observer], todo
  - [State], todo
  - [Strategy], an algorithm
