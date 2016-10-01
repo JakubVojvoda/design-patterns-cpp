@@ -33,7 +33,7 @@ objects).
  - [State], todo
  - [Strategy], an algorithm
  - [Template Method], steps of an algorithm
- - [Visitor], todo
+ - [Visitor], operations that can be applied to objects without changing their classes
 
 ### Other Languages
 In my repository you can find implementation of desgin patterns also in languages as 
