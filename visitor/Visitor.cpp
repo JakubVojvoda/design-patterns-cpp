@@ -23,6 +23,7 @@ class Visitor {
 public:
   virtual void visitElementA(ConcreteElementA *element) = 0;
   virtual void visitElementB(ConcreteElementB *element) = 0;
+  // ...
 };
 
 /*
@@ -40,6 +41,7 @@ public:
   void visitElementB(ConcreteElementB *) {
     std::cout << "Concrete Visitor 1: Element B visited." << std::endl;
   }
+  // ...
 };
 
 class ConcreteVisitor2 : public Visitor {
@@ -51,6 +53,7 @@ public:
   void visitElementB(ConcreteElementB *) {
     std::cout << "Concrete Visitor 2: Element B visited." << std::endl;
   }
+  // ...
 };
 
 /*
@@ -60,6 +63,7 @@ public:
 class Element {
 public:
   virtual void accept(Visitor &visitor) = 0;
+  // ...
 };
 
 /*
@@ -71,6 +75,7 @@ public:
   void accept(Visitor &visitor) {
     visitor.visitElementA(this);
   }
+  // ...
 };
 
 class ConcreteElementB : public Element {
@@ -78,6 +83,7 @@ public:
   void accept(Visitor &visitor) {
     visitor.visitElementB(this);
   }
+  // ...
 };
 
 
