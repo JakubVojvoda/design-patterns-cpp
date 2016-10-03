@@ -29,8 +29,8 @@ objects).
  - [Iterator], how an aggregate's elements are accessed
  - [Mediator], how and which objects interact with each other
  - [Memento], what private information is stored outside an object, and when 
- - [Observer], todo
- - [State], todo
+ - [Observer], how the dependent objects stay up to date
+ - [State], states of an object
  - [Strategy], an algorithm
  - [Template Method], steps of an algorithm
  - [Visitor], operations that can be applied to objects without changing their classes
