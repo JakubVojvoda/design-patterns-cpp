@@ -28,19 +28,19 @@ public:
     std::cout << "This is Singleton." << std::endl;
     // ...
   }
-
   // ...
 
 private:
+  Singleton() {}
   static Singleton *instance;
   // ...
 };
 
+Singleton* Singleton::instance = nullptr;
+
 
 int main()
 {
-  Singleton singleton;
-  singleton.tell();
-
+  Singleton::get()->tell();
   return 0;
 }
