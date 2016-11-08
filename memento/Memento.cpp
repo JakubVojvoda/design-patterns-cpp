@@ -47,6 +47,7 @@ class Originator {
 public:
   // implemented only for printing purpose
   void setState(int s) {
+    std::cout << "Set state to " << s << "." << std::endl;
     state = s;
   }
 
@@ -85,11 +86,13 @@ public:
   }
 
   void save() {
+    std::cout << "Save state." << std::endl;;
     history.push_back(originator->createMemento());
   }
 
   void undo() {
-    originator->setMemento(history.front());
+    std::cout << "Undo state." << std::endl;;
+    originator->setMemento(history.back());
     history.pop_back();
   }
   // ...
@@ -108,14 +111,14 @@ int main()
 
   originator->setState(1);
   caretaker->save();
-  std::cout << "Set state: " << originator->getState() << std::endl;
 
   originator->setState(2);
   caretaker->save();
-  std::cout << "Set state: " << originator->getState() << std::endl;
 
+  originator->setState(3);
   caretaker->undo();
-  std::cout << "Undo state: " << originator->getState() << std::endl;
+
+  std::cout << "Actual state is " << originator->getState() << "." << std::endl;
 
   delete originator;
   delete caretaker;
