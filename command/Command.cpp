@@ -1,5 +1,5 @@
 /*
- * C++ Design Patterns: Commnand
+ * C++ Design Patterns: Command
  * Author: Jakub Vojvoda [github.com/JakubVojvoda]
  * 2016
  *
@@ -12,12 +12,14 @@
 
 /*
  * Receiver
- * knows how to perform the operations associated 
+ * knows how to perform the operations associated
  * with carrying out a request
  */
-class Receiver {
+class Receiver
+{
 public:
-  void action() {
+  void action()
+  {
     std::cout << "Receiver: execute action" << std::endl;
   }
   // ...
@@ -27,33 +29,37 @@ public:
  * Command
  * declares an interface for all commands
  */
-class Command {
+class Command
+{
 public:
   virtual ~Command() {}
   virtual void execute() = 0;
   // ...
-  
+
 protected:
   Command() {}
 };
 
 /*
  * Concrete Command
- * implements execute by invoking the corresponding 
- * operation(s) on Receiver 
+ * implements execute by invoking the corresponding
+ * operation(s) on Receiver
  */
-class ConcreteCommand : public Command {
+class ConcreteCommand : public Command
+{
 public:
-  ConcreteCommand(Receiver *r)
-    : receiver(r) {}
-
-  ~ConcreteCommand() {
-    if (receiver) {
+  ConcreteCommand( Receiver *r ) : receiver( r ) {}
+  
+  ~ConcreteCommand()
+  {
+    if ( receiver )
+    {
       delete receiver;
     }
   }
-
-  void execute() {
+  
+  void execute()
+  {
     receiver->action();
   }
   // ...
@@ -67,15 +73,19 @@ private:
  * Invoker
  * asks the command to carry out the request
  */
-class Invoker {
+class Invoker
+{
 public:
-  void set(Command *c) {
+  void set( Command *c )
+  {
     command = c;
   }
-
-  void confirm() {
-    if (command) {
-      command->execute();
+  
+  void confirm()
+  {
+    if ( command )
+    {
+      command->execute();  
     }
   }
   // ...
@@ -88,12 +98,11 @@ private:
 
 int main()
 {
-  Receiver receiver = Receiver();
-  ConcreteCommand command = ConcreteCommand(&receiver);
-
-  Invoker invoker = Invoker();
-  invoker.set(&command);
+  ConcreteCommand command( new Receiver() );
+  
+  Invoker invoker;
+  invoker.set( &command );
   invoker.confirm();
-
+  
   return 0;
 }

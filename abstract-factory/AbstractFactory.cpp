@@ -5,7 +5,7 @@
  *
  * Source code is licensed under MIT License
  * (for more details see LICENSE)
- * 
+ *
  */
 
 #include <iostream>
@@ -15,9 +15,12 @@
  * products implement the same interface so that the classes can refer
  * to the interface not the concrete product
  */
-class ProductA {
+class ProductA
+{
 public:
-  virtual std::string getName() = 0;
+  virtual ~ProductA() {}
+  
+  virtual const char* getName() = 0;
   // ...
 };
 
@@ -25,16 +28,25 @@ public:
  * ConcreteProductAX and ConcreteProductAY
  * define objects to be created by concrete factory
  */
-class ConcreteProductAX : public ProductA {
+class ConcreteProductAX : public ProductA
+{
 public:
-  std::string getName() {
+  ~ConcreteProductAX() {}
+  
+  const char* getName()
+  {
     return "A-X";
   }
   // ...
 };
 
-class ConcreteProductAY : public ProductA {
-  std::string getName() {
+class ConcreteProductAY : public ProductA
+{
+public:
+  ~ConcreteProductAY() {}
+  
+  const char* getName()
+  {
     return "A-Y";
   }
   // ...
@@ -45,9 +57,12 @@ class ConcreteProductAY : public ProductA {
  * same as Product A, Product B declares interface for concrete products
  * where each can produce an entire set of products
  */
-class ProductB {
+class ProductB
+{
 public:
-  virtual std::string getName() = 0;
+  virtual ~ProductB() {}
+  
+  virtual const char* getName() = 0;
   // ...
 };
 
@@ -55,15 +70,25 @@ public:
  * ConcreteProductBX and ConcreteProductBY
  * same as previous concrete product classes
  */
-class ConcreteProductBX : public ProductB {
-  std::string getName() {
+class ConcreteProductBX : public ProductB
+{
+public:
+  ~ConcreteProductBX() {}
+  
+  const char* getName()
+  {
     return "B-X";
   }
   // ...
 };
 
-class ConcreteProductBY : public ProductB {
-  std::string getName() {
+class ConcreteProductBY : public ProductB
+{
+public:
+  ~ConcreteProductBY() {}
+  
+  const char* getName()
+  {
     return "B-Y";
   }
   // ...
@@ -73,8 +98,11 @@ class ConcreteProductBY : public ProductB {
  * Abstract Factory
  * provides an abstract interface for creating a family of products
  */
-class AbstractFactory {
+class AbstractFactory
+{
 public:
+  virtual ~AbstractFactory() {}
+  
   virtual ProductA *createProductA() = 0;
   virtual ProductB *createProductB() = 0;
 };
@@ -84,23 +112,33 @@ public:
  * each concrete factory create a family of products and client uses
  * one of these factories so it never has to instantiate a product object
  */
-class ConcreteFactoryX : public AbstractFactory {
+class ConcreteFactoryX : public AbstractFactory
+{
 public:
-  ProductA *createProductA() {
+  ~ConcreteFactoryX() {}
+  
+  ProductA *createProductA()
+  {
     return new ConcreteProductAX();
   }
-  ProductB *createProductB() {
+  ProductB *createProductB()
+  {
     return new ConcreteProductBX();
   }
   // ...
 };
 
-class ConcreteFactoryY : public AbstractFactory {
+class ConcreteFactoryY : public AbstractFactory
+{
 public:
-  ProductA *createProductA() {
+  ~ConcreteFactoryY() {}
+
+  ProductA *createProductA()
+  {
     return new ConcreteProductAY();
   }
-  ProductB *createProductB() {
+  ProductB *createProductB()
+  {
     return new ConcreteProductBY();
   }
   // ...
@@ -109,14 +147,20 @@ public:
 
 int main()
 {
-    ConcreteFactoryX *factoryX = new ConcreteFactoryX();
-    ConcreteFactoryY *factoryY = new ConcreteFactoryY();
+  ConcreteFactoryX *factoryX = new ConcreteFactoryX();
+  ConcreteFactoryY *factoryY = new ConcreteFactoryY();
 
-    ProductA *p1 = factoryX->createProductA();
-    std::cout << "Product: " << p1->getName() << std::endl;
-
-    ProductA *p2 = factoryY->createProductA();
-    std::cout << "Product: " << p2->getName() << std::endl;
-    
-    return 0;
+  ProductA *p1 = factoryX->createProductA();
+  std::cout << "Product: " << p1->getName() << std::endl;
+  
+  ProductA *p2 = factoryY->createProductA();
+  std::cout << "Product: " << p2->getName() << std::endl;
+  
+  delete p1;
+  delete p2;
+  
+  delete factoryX;
+  delete factoryY;
+  
+  return 0;
 }

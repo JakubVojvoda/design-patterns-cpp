@@ -15,8 +15,11 @@
  * defines an interface for objects that can have responsibilities
  * added to them dynamically
  */
-class Component {
+class Component
+{
 public:
+  virtual ~Component() {}
+  
   virtual void operation() = 0;
   // ...
 };
@@ -26,9 +29,13 @@ public:
  * defines an object to which additional responsibilities
  * can be attached
  */
-class ConcreteComponent : public Component {
+class ConcreteComponent : public Component
+{
 public:
-  void operation() {
+  ~ConcreteComponent() {}
+  
+  void operation()
+  {
     std::cout << "Concrete Component operation" << std::endl;
   }
   // ...
@@ -39,12 +46,15 @@ public:
  * maintains a reference to a Component object and defines an interface
  * that conforms to Component's interface
  */
-class Decorator : public Component {
+class Decorator : public Component
+{
 public:
-  Decorator(Component *c)
-    : component(c) {}
-
-  virtual void operation() {
+  ~Decorator() {}
+  
+  Decorator( Component *c ) : component( c ) {}
+  
+  virtual void operation()
+  {
     component->operation();
   }
   // ...
@@ -58,24 +68,26 @@ private:
  * add responsibilities to the component (can extend the state
  * of the component)
  */
-class ConcreteDecoratorA : public Decorator {
+class ConcreteDecoratorA : public Decorator
+{
 public:
-  ConcreteDecoratorA(Component *c)
-    : Decorator(c) {}
-
-  void operation() {
+  ConcreteDecoratorA( Component *c ) : Decorator( c ) {}
+  
+  void operation()
+  {
     Decorator::operation();
     std::cout << "Decorator A" << std::endl;
   }
   // ...
 };
 
-class ConcreteDecoratorB : public Decorator {
+class ConcreteDecoratorB : public Decorator
+{
 public:
-  ConcreteDecoratorB(Component *c)
-    : Decorator(c) {}
-
-  void operation() {
+  ConcreteDecoratorB( Component *c ) : Decorator( c ) {}
+  
+  void operation()
+  {
     Decorator::operation();
     std::cout << "Decorator B" << std::endl;
   }
@@ -85,10 +97,16 @@ public:
 
 int main()
 {
-  Component *component = new ConcreteDecoratorA(
-              new ConcreteDecoratorB(new ConcreteComponent));
-
+  ConcreteComponent  *cc = new ConcreteComponent();
+  ConcreteDecoratorB *db = new ConcreteDecoratorB( cc );
+  ConcreteDecoratorA *da = new ConcreteDecoratorA( db );
+  
+  Component *component = da;
   component->operation();
-
+  
+  delete da;
+  delete db;
+  delete cc;
+  
   return 0;
 }

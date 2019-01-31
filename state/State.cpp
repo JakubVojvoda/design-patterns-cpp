@@ -15,7 +15,8 @@
  * defines an interface for encapsulating the behavior associated
  * with a particular state of the Context
  */
-class State {
+class State
+{
 public:
   virtual ~State() { /* ... */ }
   virtual void handle() = 0;
@@ -27,21 +28,25 @@ public:
  * each subclass implements a behavior associated with a state
  * of the Context
  */
-class ConcreteStateA : public State {
+class ConcreteStateA : public State
+{
 public:
   ~ConcreteStateA() { /* ... */ }
-
-  void handle() {
+  
+  void handle()
+  {
     std::cout << "State A handled." << std::endl;
   }
   // ...
 };
 
-class ConcreteStateB : public State {
+class ConcreteStateB : public State
+{
 public:
   ~ConcreteStateB() { /* ... */ }
-
-  void handle() {
+  
+  void handle()
+  {
     std::cout << "State B handled." << std::endl;
   }
   // ...
@@ -51,22 +56,27 @@ public:
  * Context
  * defines the interface of interest to clients
  */
-class Context {
+class Context
+{
 public:
   Context() : state() { /* ... */ }
-
-  ~Context() {
+  
+  ~Context()
+  {
     delete state;
   }
-
-  void setState(State *s) {
-    if (state) {
+  
+  void setState( State* const s )
+  {
+    if ( state )
+    {
       delete state;
     }
     state = s;
   }
-
-  void request() {
+  
+  void request()
+  {
     state->handle();
   }
   // ...
@@ -79,17 +89,14 @@ private:
 
 int main()
 {
-  State *stateA = new ConcreteStateA;
-  State *stateB = new ConcreteStateB;
-
-  Context *context = new Context;
-
-  context->setState(stateA);
+  Context *context = new Context();
+  
+  context->setState( new ConcreteStateA() );
   context->request();
-
-  context->setState(stateB);
+  
+  context->setState( new ConcreteStateB() );
   context->request();
-
+  
   delete context;
   return 0;
 }

@@ -14,8 +14,11 @@
  * Implementor
  * defines the interface for implementation classes
  */
-class Implementor {
+class Implementor
+{
 public:
+  virtual ~Implementor() {}
+  
   virtual void action() = 0;
   // ...
 };
@@ -24,17 +27,25 @@ public:
  * Concrete Implementors
  * implement the Implementor interface and define concrete implementations
  */
-class ConcreteImplementorA : public Implementor {
+class ConcreteImplementorA : public Implementor
+{
 public:
-  void action() {
+  ~ConcreteImplementorA() {}
+  
+  void action()
+  {
     std::cout << "Concrete Implementor A" << std::endl;
   }
   // ...
 };
 
-class ConcreteImplementorB : public Implementor {
+class ConcreteImplementorB : public Implementor
+{
 public:
-  void action() {
+  ~ConcreteImplementorB() {}
+  
+  void action()
+  {
     std::cout << "Concrete Implementor B" << std::endl;
   }
   // ...
@@ -44,8 +55,11 @@ public:
  * Abstraction
  * defines the abstraction's interface
  */
-class Abstraction {
+class Abstraction
+{
 public:
+  virtual ~Abstraction() {}
+  
   virtual void operation() = 0;
   // ...
 };
@@ -54,16 +68,19 @@ public:
  * RefinedAbstraction
  * extends the interface defined by Abstraction
  */
-class RefinedAbstraction : public Abstraction {
+class RefinedAbstraction : public Abstraction
+{
 public:
-  RefinedAbstraction(Implementor *impl)
-    : implementor(impl) {}
-
-  void operation() {
+  ~RefinedAbstraction() {}
+  
+  RefinedAbstraction(Implementor *impl) : implementor(impl) {}
+  
+  void operation()
+  {
     implementor->action();
   }
   // ...
-  
+
 private:
   Implementor *implementor;
 };
@@ -73,12 +90,18 @@ int main()
 {
   Implementor *ia = new ConcreteImplementorA;
   Implementor *ib = new ConcreteImplementorB;
-
+  
   Abstraction *abstract1 = new RefinedAbstraction(ia);
   abstract1->operation();
-
+  
   Abstraction *abstract2 = new RefinedAbstraction(ib);
   abstract2->operation();
-
+  
+  delete abstract1;
+  delete abstract2;
+  
+  delete ia;
+  delete ib;
+  
   return 0;
 }

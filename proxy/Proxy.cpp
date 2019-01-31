@@ -15,7 +15,8 @@
  * defines the common interface for RealSubject and Proxy
  * so that a Proxy can be used anywhere a RealSubject is expected
  */
-class Subject {
+class Subject
+{
 public:
   virtual ~Subject() { /* ... */ }
 
@@ -27,9 +28,11 @@ public:
  * Real Subject
  * defines the real object that the proxy represents
  */
-class RealSubject : public Subject {
+class RealSubject : public Subject
+{
 public:
-  void request() {
+  void request()
+  {
     std::cout << "Real Subject request" << std::endl;
   }
   // ...
@@ -39,17 +42,21 @@ public:
  * Proxy
  * maintains a reference that lets the proxy access the real subject
  */
-class Proxy : public Subject {
+class Proxy : public Subject
+{
 public:
-  Proxy() {
+  Proxy()
+  {
     subject = new RealSubject();
   }
-
-  ~Proxy() {
+  
+  ~Proxy()
+  {
     delete subject;
   }
-
-  void request() {
+  
+  void request()
+  {
     subject->request();
   }
   // ...
@@ -61,8 +68,9 @@ private:
 
 int main()
 {
-  Proxy *proxy = new Proxy;
+  Proxy *proxy = new Proxy();
   proxy->request();
-
+  
+  delete proxy;
   return 0;
 }
