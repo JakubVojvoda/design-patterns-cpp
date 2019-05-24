@@ -18,6 +18,15 @@
 class Singleton
 {
 public:
+  // The copy constructor and assignment operator
+  // are defined as deleted, which means that you
+  // can't make a copy of singleton.
+  //
+  // Note: you can achieve the same effect by declaring
+  // the constructor and the operator as private
+  Singleton( Singleton const& ) = delete;
+  Singleton& operator=( Singleton const& ) = delete;
+
   static Singleton* get()
   {
     if ( !instance )
