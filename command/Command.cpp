@@ -18,7 +18,7 @@
 class Receiver
 {
 public:
-  void action()
+  static void action()
   {
     std::cout << "Receiver: execute action" << std::endl;
   }
@@ -32,12 +32,12 @@ public:
 class Command
 {
 public:
-  virtual ~Command() {}
+  virtual ~Command() = default;
   virtual void execute() = 0;
   // ...
 
 protected:
-  Command() {}
+  Command() = default;
 };
 
 /*
@@ -48,9 +48,9 @@ protected:
 class ConcreteCommand : public Command
 {
 public:
-  ConcreteCommand( Receiver *r ) : receiver( r ) {}
+  explicit ConcreteCommand( Receiver *r ) : receiver( r ) {}
   
-  ~ConcreteCommand()
+  ~ConcreteCommand() override
   {
     if ( receiver )
     {
@@ -58,7 +58,7 @@ public:
     }
   }
   
-  void execute()
+  void execute() override
   {
     receiver->action();
   }
@@ -100,7 +100,7 @@ int main()
 {
   ConcreteCommand command( new Receiver() );
   
-  Invoker invoker;
+  Invoker invoker{};
   invoker.set( &command );
   invoker.confirm();
   

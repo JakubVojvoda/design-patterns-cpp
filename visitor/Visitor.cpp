@@ -22,10 +22,10 @@ class ConcreteElementB;
 class Visitor
 {
 public:
-  virtual ~Visitor() {}
+  virtual ~Visitor() = default;
   
-  virtual void visitElementA( ConcreteElementA* const element ) = 0;
-  virtual void visitElementB( ConcreteElementB* const element ) = 0;
+  virtual void visitElementA( ConcreteElementA* element ) = 0;
+  virtual void visitElementB( ConcreteElementB* element ) = 0;
   // ...
 };
 
@@ -38,14 +38,14 @@ public:
 class ConcreteVisitor1 : public Visitor
 {
 public:
-  ~ConcreteVisitor1() {}
+  ~ConcreteVisitor1() override = default;
   
-  void visitElementA( ConcreteElementA* const )
+  void visitElementA( ConcreteElementA* const ) override
   {
     std::cout << "Concrete Visitor 1: Element A visited." << std::endl;
   }
   
-  void visitElementB( ConcreteElementB* const )
+  void visitElementB( ConcreteElementB* const ) override
   {
     std::cout << "Concrete Visitor 1: Element B visited." << std::endl;
   }
@@ -55,14 +55,14 @@ public:
 class ConcreteVisitor2 : public Visitor
 {
 public:
-  ~ConcreteVisitor2() {}
+  ~ConcreteVisitor2() override = default;
   
-  void visitElementA( ConcreteElementA* const )
+  void visitElementA( ConcreteElementA* const ) override
   {
     std::cout << "Concrete Visitor 2: Element A visited." << std::endl;
   }
   
-  void visitElementB( ConcreteElementB* const )
+  void visitElementB( ConcreteElementB* const ) override
   {
     std::cout << "Concrete Visitor 2: Element B visited." << std::endl;
   }
